@@ -1,0 +1,244 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* VakMithra brand colors */
+  --color-indigo: var(--indigo);
+  --color-indigo-light: var(--indigo-light);
+  --color-cyan: var(--cyan-accent);
+  --color-gold: var(--gold);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-dark-section: var(--dark-section);
+  --color-dark-section-foreground: var(--dark-section-foreground);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-display: 'Clash Display', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Backgrounds */
+  --background: oklch(0.985 0.002 80);
+  --foreground: oklch(0.145 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0.02 260);
+
+  /* Brand indigo - Updated to #4A7EBB */
+  --primary: #4A7EBB;
+  --primary-foreground: white;
+
+  --secondary: oklch(0.965 0.008 80);
+  --secondary-foreground: oklch(0.25 0.02 260);
+
+  --muted: oklch(0.955 0.008 80);
+  --muted-foreground: oklch(0.52 0.02 260);
+
+  --accent: #f0f4f9;
+  --accent-foreground: #3b6394;
+
+  --destructive: oklch(0.577 0.245 27);
+  --destructive-foreground: oklch(0.98 0.005 270);
+
+  --border: oklch(0.88 0.01 80 / 60%);
+  --input: oklch(0.92 0.01 80);
+  --ring: #4A7EBB;
+
+  /* VakMithra brand tokens - Updated to #4A7EBB */
+  --indigo: #4A7EBB;
+  --indigo-light: #f0f4f9;
+  --cyan-accent: oklch(0.62 0.18 230);
+  --gold: oklch(0.75 0.17 75);
+  --success: oklch(0.62 0.17 160);
+  --danger: oklch(0.577 0.245 27);
+  --surface: oklch(0.985 0.002 80);
+  --surface-alt: oklch(0.965 0.008 75);
+  --dark-section: oklch(0.16 0.02 265);
+  --dark-section-foreground: oklch(0.97 0.005 250);
+  --text-secondary: oklch(0.35 0.015 260);
+  --text-muted: oklch(0.52 0.015 260);
+
+  --chart-1: #4A7EBB;
+  --chart-2: oklch(0.62 0.18 230);
+  --chart-3: oklch(0.75 0.17 75);
+  --chart-4: oklch(0.62 0.17 160);
+  --chart-5: oklch(0.577 0.245 27);
+
+  --sidebar: oklch(0.98 0.003 80);
+  --sidebar-foreground: oklch(0.145 0.02 260);
+  --sidebar-primary: #4A7EBB;
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: #f0f4f9;
+  --sidebar-accent-foreground: #3b6394;
+  --sidebar-border: oklch(0.88 0.01 80 / 60%);
+  --sidebar-ring: #4A7EBB;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 40px rgba(74, 126, 187, 0.15);
+  --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Mesh gradient hero background */
+.mesh-gradient {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(74, 126, 187, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, oklch(0.62 0.18 230 / 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 80%, oklch(0.75 0.17 75 / 0.04) 0%, transparent 60%),
+    var(--color-background);
+  animation: meshShift 12s ease infinite alternate;
+}
+
+@keyframes meshShift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%;
+  }
+
+  100% {
+    background-position: 20% 20%, 80% 40%, 40% 60%;
+  }
+}
+
+/* Gradient border card */
+.gradient-border {
+  position: relative;
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius-lg) + 1px);
+  background: linear-gradient(135deg, var(--color-indigo), var(--color-cyan));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Scrolling marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Waveform animation */
+@keyframes waveform {
+
+  0%,
+  100% {
+    height: 8px;
+  }
+
+  50% {
+    height: 28px;
+  }
+}
+
+/* Shimmer skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, oklch(0.95 0 0) 25%, oklch(0.92 0 0) 50%, oklch(0.95 0 0) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+}

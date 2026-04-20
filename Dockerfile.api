@@ -1,0 +1,21 @@
+# Use Node 20
+FROM node:20-slim
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json ./
+
+# Install only production dependencies
+# We still need tsx to run our .ts api file
+RUN npm install && npm install -g tsx
+
+# Copy the server folder and the .env requirements
+COPY server ./server
+COPY .env* ./
+
+# Expose the API port
+EXPOSE 3001
+
+# Start the API server
+CMD ["tsx", "server/api.ts"]
