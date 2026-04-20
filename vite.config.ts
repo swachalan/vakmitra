@@ -9,7 +9,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   cloudflare: false,
   tanstackStart: {
-    // Only use node-server if not on Vercel, to preserve Docker compatibility
-    deploymentTarget: process.env.VERCEL ? undefined : "node-server",
+    // Use 'vercel' preset on Vercel, otherwise use 'node-server' for Docker
+    deploymentTarget: process.env.VERCEL ? "vercel" : "node-server",
   },
 });
